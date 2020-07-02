@@ -152,7 +152,7 @@ class CrudsController extends Controller
             //dd($search);
             $crud = Crud::select('first_name')->get();
 
-
+            $tornike =
             $search = products::select('price')->get();
             $first = Crud::select('last_name')->where('last_name' , 'Gumashvili')->where('first_name', '=', 'რუსტამ')->get();
             $dota = Crud::select('first_name')->where('first_name', 'like', '%რუსტამ%')->get();
