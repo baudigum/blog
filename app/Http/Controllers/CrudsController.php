@@ -156,10 +156,9 @@ class CrudsController extends Controller
             $search = products::select('price')->get();
             $first = Crud::select('last_name')->where('last_name' , 'Gumashvili')->where('first_name', '=', 'რუსტამ')->get();
             $dota = Crud::select('first_name')->where('first_name', 'like', '%რუსტამ%')->get();
-            dd($dota);
-            return view('testing', ['product'=>$product, 'search'=>$search, 'crud'=>$crud, 'first'=>$first, 'dota'=>$dota]);
-
-
+            $irakli = Crud::select('first_name')->orderByRaw('updated_at - created_at DESC')->get();
+            $mari = products::select('price')->where('price', '>', 'amount')->where('title', '=', 'ბორბლები')->get();
+            return view('testing', ['product'=>$product, 'search'=>$search, 'crud'=>$crud, 'first'=>$first, 'dota'=>$dota, 'irakli'=>$irakli, 'mari'=>$mari]);
     }
 
 }

@@ -1,23 +1,20 @@
-@foreach ($product as $item)
- {{ $item->title }}
-
-@endforeach
+{{-- @foreach ($product as $item)
+ <h1>{{ $item->title }} product</h1>
+@endforeach --}}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<table style="width:100%">
-@foreach ($search as $valve)
-
-  {{-- <tr>
-    <th>{{ $valve->id }}</th>
-    <th>{{ $valve->title }}</th>
-    <th>{{ $valve->amount }}</th>
-    <th>{{ $valve->prices }}</th>
-  </tr> --}}
-  <tr>
-    <td>{{ $valve->price }}</td>
-  </tr>
+@foreach ($irakli as $ira)
+  <table>
+    <tr>
+      <th>  {{ $ira->first_name }}</th>
+    </tr>
+  </table>
+@endforeach
+@foreach ($mari as $dd)
+    <table>
+      <tr>
+        <th>{{ $dd->price }}</th>
+      </tr>
+    </table>
 
 @endforeach
-</table>
-<h1>{{ $first }}</h1>
-<h1>{{ $dota }}</h1>
