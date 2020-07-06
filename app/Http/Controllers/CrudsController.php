@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Crud;
 use App\products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Auth;
 class CrudsController extends Controller
 {
@@ -36,13 +37,17 @@ class CrudsController extends Controller
      */
     public function store(Request $request)
     {
-      dd($request->all());
+
         $request->validate([
             'first_name'    =>  'required',
             'last_name'     =>  'required',
             'image'         =>  'required|image|max:2048',
             'user_id'       =>  'required'
         ]);
+        if ($request->first_name == 'ბაუდი') {
+             return redirect::back()->withErrors('ბაუდი უნიკალურია');
+          // code...
+        }
 
         $image = $request->file('image');
 
@@ -158,7 +163,12 @@ class CrudsController extends Controller
             $dota = Crud::select('first_name')->where('first_name', 'like', '%რუსტამ%')->get();
             $irakli = Crud::select('first_name')->orderByRaw('updated_at - created_at DESC')->get();
             $mari = products::select('price')->where('price', '>', 'amount')->where('title', '=', 'ბორბლები')->get();
+            $join = DB::table('users')
+            ->join('products', 'user_id','products.user_id')
+            ->get();
+            dd($join);
             return view('testing', ['product'=>$product, 'search'=>$search, 'crud'=>$crud, 'first'=>$first, 'dota'=>$dota, 'irakli'=>$irakli, 'mari'=>$mari]);
+
     }
 
 }

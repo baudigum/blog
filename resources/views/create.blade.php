@@ -38,10 +38,15 @@
  <div class="form-group">
   <label class="col-md-4 text-right">Select Profile Image</label>
   <div class="col-md-8">
-   <input multiple="multiple" type="file" name="image[]"/>
+   <input multiple="multiple" type="file" name="image"/>
   </div>
  </div>
  <br /><br /><br />
+ @if (session('status'))
+     <div class="alert alert-success" role="alert">
+         {{ session('status') }}
+     </div>
+ @endif
  <div class="form-group text-center">
     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
   <input type="submit" name="add" class="btn btn-primary input-lg" value="Add" />
