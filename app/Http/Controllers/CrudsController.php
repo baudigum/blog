@@ -5,7 +5,10 @@ use App\Crud;
 use App\products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+
+// use Illuminate\Support\Facades\DB;
 use Auth;
+use DB;
 class CrudsController extends Controller
 {
     /**
@@ -151,23 +154,26 @@ class CrudsController extends Controller
 
     public function testing()
         {
-            $product = products::where('user_id', '=', '1')->where('amount' , '=' , '21')->orderBy('id' , 'desc')->get();
-          //  $search = products::where('price' , '44')->where('amount' , '=' , '21')->get();
-            //$search = products::get();
-            //dd($search);
-            $crud = Crud::select('first_name')->get();
+          //   $product = products::where('user_id', '=', '1')->where('amount' , '=' , '21')->orderBy('id' , 'desc')->get();
+          // //  $search = products::where('price' , '44')->where('amount' , '=' , '21')->get();
+          //   //$search = products::get();
+          //   //dd($search);
+          //   $crud = Crud::select('first_name')->get();
+          //
+          //   $tornike =
+          //   $search = products::select('price')->get();
+          //   $first = Crud::select('last_name')->where('last_name' , 'Gumashvili')->where('first_name', '=', 'რუსტამ')->get();
+          //   $dota = Crud::select('first_name')->where('first_name', 'like', '%რუსტამ%')->get();
+          //  $irakli = Crud::select('first_name')->orderByRaw('updated_at - created_at DESC')->get();
+          //   $mari = products::select('price')->where('price', '>', 'amount')->where('title', '=', 'ბორბლები')->get();
+             $join = DB::table('users')
+             ->join('products', 'user_id','users.id')
+             ->get();
 
-            $tornike =
-            $search = products::select('price')->get();
-            $first = Crud::select('last_name')->where('last_name' , 'Gumashvili')->where('first_name', '=', 'რუსტამ')->get();
-            $dota = Crud::select('first_name')->where('first_name', 'like', '%რუსტამ%')->get();
-            $irakli = Crud::select('first_name')->orderByRaw('updated_at - created_at DESC')->get();
-            $mari = products::select('price')->where('price', '>', 'amount')->where('title', '=', 'ბორბლები')->get();
-            $join = DB::table('users')
-            ->join('products', 'user_id','products.user_id')
-            ->get();
-            dd($join);
-            return view('testing', ['product'=>$product, 'search'=>$search, 'crud'=>$crud, 'first'=>$first, 'dota'=>$dota, 'irakli'=>$irakli, 'mari'=>$mari]);
+
+
+
+            return view('testing', [ 'join'=>$join]);
 
     }
 
