@@ -50,26 +50,22 @@ table, th, td {
 </style>
 </head>
 <body>
-
+<h1>{{ $join[0]->name}}</h1>
 <h2>Add a border to a table:</h2>
-
+     {{ Auth::user()->name }}
 <table>
-
-
-    <tr>
+  <tr>
     <th>title</th>
     <th>amount</th>
     <th>price</th>
   </tr>
-    @foreach ($join as $key)
+@foreach ($join as $key)
   <tr>
     <td>{{{$key->title}}}</td>
     <td>{{{$key->amount}}}</td>
     <td>{{{$key->price}}}</td>
   </tr>
-    @endforeach
-
-
+@endforeach
 </table>
 
 </body>

@@ -166,12 +166,10 @@ class CrudsController extends Controller
           //   $dota = Crud::select('first_name')->where('first_name', 'like', '%რუსტამ%')->get();
           //  $irakli = Crud::select('first_name')->orderByRaw('updated_at - created_at DESC')->get();
           //   $mari = products::select('price')->where('price', '>', 'amount')->where('title', '=', 'ბორბლები')->get();
-             $join = DB::table('users')
+
+             $join = DB::table('users')->where('user_id' , '=' , Auth::user()->id)
              ->join('products', 'user_id','users.id')
              ->get();
-
-
-
 
             return view('testing', [ 'join'=>$join]);
 
