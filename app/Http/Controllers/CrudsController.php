@@ -6,9 +6,8 @@ use App\products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use Auth;
-use DB;
 class CrudsController extends Controller
 {
     /**
@@ -159,8 +158,6 @@ class CrudsController extends Controller
           //   //$search = products::get();
           //   //dd($search);
           //   $crud = Crud::select('first_name')->get();
-          //
-          //   $tornike =
           //   $search = products::select('price')->get();
           //   $first = Crud::select('last_name')->where('last_name' , 'Gumashvili')->where('first_name', '=', 'რუსტამ')->get();
           //   $dota = Crud::select('first_name')->where('first_name', 'like', '%რუსტამ%')->get();
@@ -170,8 +167,17 @@ class CrudsController extends Controller
              $join = DB::table('users')->where('user_id' , '=' , Auth::user()->id)
              ->join('products', 'user_id','users.id')
              ->get();
-
-            return view('testing', [ 'join'=>$join]);
+            // $user = products::where('price', 'like', '%7')->orWhere('title','=','მანქანა')->get();
+          //  $hash = DB::table('products')->whereNotBetween('price',[ 1, 30 ])->get();
+            //  $hash = DB::table('products')->whereColumn('amount', 'price')->get();
+            $users = DB::table('users')
+           ->where('name', '=', 'Jalon Oberbrunner')
+           ->where(function ($query) {
+               $query->where('created_at', '>', '2020-07-02 13:26:25')
+                     ->orWhere('name', '=', 'Jalon Oberbrunner');
+           })
+           ->get();
+            return view('testing', [ 'join'=>$join],['users'=>$users]);
 
     }
 
