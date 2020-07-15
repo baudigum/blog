@@ -104,7 +104,7 @@
 
 
   @endforeach
-
+  {{ now()->year }}
 </table>
 
 
