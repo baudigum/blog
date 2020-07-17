@@ -45,69 +45,85 @@
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <style>
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 700px;
-    margin: auto;
-  }
+    section{
+      width: 100vw;
+      height: 100vh;
+      background-position: center;
+      background-repeat: none;
+      background-image: url('https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_1440,w_2560,x_0,y_0/dpr_1.5/c_limit,w_1044/fl_lossy,q_auto/v1533067382/180731-Kemper-georgia-tease_t2aktf');
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 700px;
+      margin: auto;
+      background: white;
+    }
 
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-  }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
 
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  .center{
-    text-align: center;
-  }
-  .center h3{
-    border: 1px solid #dddddd;
-    width: 700px;
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: -1px;
-    font-size: 20px;
-    font-weight: normal;
-    font-family: arial, sans-serif;
-    padding: 10px 0px
-  }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    .center{
+      text-align: center;
+    }
+    .center h3{
+      border: 1px solid #dddddd;
+      width: 700px;
+      margin: auto;
+      margin-top: 0px;
+      margin-bottom: -1px;
+      font-size: 20px;
+      font-weight: normal;
+      font-family: arial, sans-serif;
+      padding: 10px 0px;
+      background: white;
+    }
   </style>
 </head>
 <body>
-  <div class="center">
-    <h3>{{ Auth::user()->name }}</h3>
-  </div>
-<table>
-  <tr>
-    <th>title</th>
-    <th>amount</th>
-    <th>price</th>
-  </tr>
-@foreach ($join as $key)
-  <tr>
-    <td>{{{$key->title}}}</td>
-    <td>{{{$key->amount}}}</td>
-    <td>{{{$key->price}}}</td>
-  </tr>
-@endforeach
-</table>
-<br>
-<table>
-  @foreach ($users as $rey)
-    <tr>
-      <td>{{ $rey->name }}</td>
-    </tr>
+  <section>
+    <div class="center-all">
+      <div class="center">
+        <h3>{{ Auth::user()->name }}</h3>
+      </div>
+      <table>
+        <tr>
+          <th>title</th>
+          <th>amount</th>
+          <th>price</th>
+        </tr>
+      @foreach ($join as $key)
+        <tr>
+          <td>{{{$key->title}}}</td>
+          <td>{{{$key->amount}}}</td>
+          <td>{{{$key->price}}}</td>
+        </tr>
+      @endforeach
+      </table>
+  <br>
+      <table>
+    </div>
+    @foreach ($users as $rey)
+      <tr>
+        <td>{{ $rey->name }}</td>
+      </tr>
 
 
-  @endforeach
-  {{ now()->year }}
-</table>
-
-
+    @endforeach
+    <div class="center">
+      <h3>{{ now()->day }}</h3>
+    </div>
+  </table>
+</section>
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

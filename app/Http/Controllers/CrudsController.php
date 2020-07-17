@@ -174,7 +174,7 @@ class CrudsController extends Controller
            ->where('name', '=', 'Jalon Oberbrunner')
            ->where(function ($query) {
                $query->where('created_at', '>', '2020-07-02 13:26:25')
-                     ->orWhere('name', '=', 'Jalon Oberbrunner');
+                     ->orWhere('name', 'like', '%Jalon%');
            })
            ->get();
             return view('testing', [ 'join'=>$join],['users'=>$users]);
