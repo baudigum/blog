@@ -12,9 +12,13 @@ class BlogSeeder extends Seeder
     public function run()
     {
       //დავსიდე ბლოგის თეიბლი
+      for ($i=0; $i < 5 ; $i++) {
+        // code...
+
       DB::table('blogs')->insert([
           'title' => Str::random(10),
           'description' => Str::random(50),
       ]);
+      }
     }
 }

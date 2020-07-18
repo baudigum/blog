@@ -16,7 +16,6 @@
         <th>{{ $dd->price }}</th>
       </tr>
     </table>
-
 @endforeach
 @foreach($users as $ff)
 <table>
