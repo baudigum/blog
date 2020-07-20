@@ -17,7 +17,7 @@ class BlogController extends Controller
       if ($request->search == ' ') {
          return redirect('testing');
        }
-        $data = blog::where('title', 'like', $request->search)->get();
+        $data = blog::where('title', 'like', $request->search)->first();
 
          return view('blog',compact('data'));
 
