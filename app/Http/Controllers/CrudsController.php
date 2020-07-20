@@ -5,7 +5,6 @@ use App\Crud;
 use App\products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-
 use Illuminate\Support\Facades\DB;
 use Auth;
 class CrudsController extends Controller

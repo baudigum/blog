@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Redirect;
 use App\blog;
 use Illuminate\Http\Request;
 
@@ -12,11 +12,16 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = blog::where('title', 'like', '%k%')->get();
+      if ($request->search == ' ') {
+         return redirect('testing');
+       }
+        $data = blog::where('title', 'like', $request->search)->get();
+
          return view('blog',compact('data'));
-        
+
+
     }
 
     /**

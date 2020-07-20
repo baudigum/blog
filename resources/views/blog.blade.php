@@ -1,9 +1,4 @@
-@foreach ($data as $dd)
-    <table>
-
-      <tr>
-        <th>{{ $dd->description }}</th>
-      </tr>
-    </table>
-
+@foreach ($data as $key)
+  <td>{{ $key->description }}</td>
+  <br>
 @endforeach

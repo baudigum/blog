@@ -169,7 +169,7 @@ body {
   <a href="#about">About</a>
   <a href="#contact">Contact</a>
   <div class="search-container">
-    <form action={{ route('filter') }}>
+    <form action={{ route('blog') }}>
       <input type="text" placeholder="Search.." name="search">
       <button type="submit">Submit</button>
     </form>

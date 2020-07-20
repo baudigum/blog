@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
 class BlogSeeder extends Seeder
 {
     /**
@@ -12,6 +12,7 @@ class BlogSeeder extends Seeder
     public function run()
     {
       //დავსიდე ბლოგის თეიბლი
+      // for ციკლით
       for ($i=0; $i < 5 ; $i++) {
         // code...
 

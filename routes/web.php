@@ -37,8 +37,9 @@ Route::get('view' , 'CrudsController@show')->name('view');
 Route::get('/filter' , 'CrudsController@filter')->name('filter');
 Route::get('/destroy/{id}' , 'CrudsController@destroy')->name('destroy');
 Route::get('/testing' , 'CrudsController@testing')->name('testing');
-});
 Route::get('/blog', 'BlogController@index')->name('blog');
+});
+
 Route::get('/', function () {
     return view('welcome');
 });
