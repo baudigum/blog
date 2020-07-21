@@ -12,7 +12,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        <a href="{{ route('crud') }}" class="btn btn-default">Your Data</a>
+                        <a href="{{ route('crud') }}" class="btn btn-danger">Your Data</a>
                 </div>
             </div>
         </div>
