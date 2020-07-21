@@ -12,16 +12,18 @@ class BlogController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
-    {
-      if ($request->search == ' ') {
+     public function index(Request $request) {
+       if ($request->search == '') {
          return redirect('testing');
        }
+
         $data = blog::where('title', 'like', $request->search)->first();
 
+        if(empty($data)) {
+          return redirect('testing');
+        }
+
          return view('blog',compact('data'));
-
-
     }
 
     /**
