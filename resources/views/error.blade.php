@@ -1,3 +1,6 @@
+@extends('parent')
+
+@section('main')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,3 +32,4 @@
 </body>
 
 </html>
+@endsection
