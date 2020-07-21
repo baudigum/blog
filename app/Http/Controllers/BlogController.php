@@ -14,13 +14,13 @@ class BlogController extends Controller
      */
      public function index(Request $request) {
        if ($request->search == '') {
-         return redirect('testing');
+         return view('error');
        }
 
         $data = blog::where('title', 'like', $request->search)->first();
 
         if(empty($data)) {
-          return redirect('testing');
+          return view('error');
         }
 
          return view('blog',compact('data'));
