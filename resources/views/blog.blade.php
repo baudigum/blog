@@ -1,7 +1,8 @@
 @extends('layouts.app')
 @section('header')
-      <link href="/css/app.css" rel="stylesheet">
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/app.css" rel="stylesheet">
+<script src="/js/app.js" defer></script>
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/blog-post.css" rel="stylesheet"
 @endsection
 @section('content')
@@ -60,8 +61,12 @@
         <div class="media mb-4">
           <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
           <div class="media-body">
-            <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            @foreach ($data as $key)
+
+
+            <h5 class="mt-0">{{ $data->name }}</h5>
+          {{ $data->description }}
+          @endforeach
           </div>
         </div>
 
@@ -70,7 +75,7 @@
           <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
           <div class="media-body">
             <h5 class="mt-0">Commenter Name</h5>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
 
             <div class="media mt-4">
               <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
@@ -85,7 +90,9 @@
               <div class="media-body">
                 <h5 class="mt-0">Commenter Name</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
               </div>
+
             </div>
 
           </div>
@@ -167,7 +174,7 @@
 @section('footer')
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website {{ now()->year }}</p>
     </div>
     <!-- /.container -->
   </footer>
